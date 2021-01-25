@@ -51,7 +51,7 @@ $(window).load(function() {
 	<?php include 'texts/'.$lang.'/home-news.html'; ?>
 	<p>To read our safety measures against COVID19 click here <a href=" https://drive.google.com/file/d/1B63DIQhLyCUuLVI6WBF3jFU9XRERPrZ5/view?fbclid=IwAR2Se56Gx0pL9ZEbm7pCIMUuhKM9iTuWXNVb4eKatPbDXaUNlmP6mIzneQw">Safety Measures</a></p>
 	<div>
-	<a href="booking"><img src="img/sticker.png"></a>
+	<a href="booking"><img src="img/sticker2.png"></a>
 	</div>
 </div>
 
