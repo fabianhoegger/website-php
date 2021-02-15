@@ -14,15 +14,31 @@ y2017_=0
 y2016_=0
 yandex=0
 y2020=0
+
+google=0
+bing=0
+
+mozilla=0
+chrome=0
+opera=0
+safari=0
 for i in range(1,6):
     logs=pd.read_csv('2019/disk'+str(i)+'.csv')
-    #print(logs.head())
+    #
+    print(logs.head())
     logs=logs.loc[logs['datetime'].str.contains('2020')==True]
     logs=logs.loc[logs['request_method'].str.contains('hotel')==True]
     logsum+=logs['browser'].count()
     a=logs['receiving_ip'].nunique()
     uniqueip+=a
     #b=logs['browser']
+    mozilla_=logs.loc[logs['browser'].str.contains('Mozilla')==True]
+    chrome_=logs.loc[logs['browser'].str.contains('Chrome')==True]
+    safari_=logs.loc[logs['browser'].str.contains('Safari')==True]
+    opera_=logs.loc[logs['browser'].str.contains('opera')==True]
+
+    google_=logs.loc[logs['browser'].str.contains('google')==True]
+    bing_=logs.loc[logs['browser'].str.contains('bingbot')==True]
 
     iphone_=logs.loc[logs['browser'].str.contains('iPhone')==True]
     windows_=logs.loc[logs['browser'].str.contains('Windows')==True]
@@ -36,6 +52,14 @@ for i in range(1,6):
     bot+=bot_['browser'].count()
     mac+=mac_['browser'].count()
     android=android_['browser'].count()
+
+    google+=google_['browser'].count()
+    bing+=bing_['browser'].count()
+
+    mozilla+=mozilla_['browser'].count()
+    chrome+=chrome_['browser'].count()
+    safari+=safari_['browser'].count()
+    opera+=opera_['browser'].count()
 
     y2019=logs.loc[logs['datetime'].str.contains('2019')==True]
     y2018=logs.loc[logs['datetime'].str.contains('2018')==True]
@@ -62,3 +86,29 @@ print("android count: ",android)
 print("TABLET count: ",tablet)
 print("bot count: ",bot)
 print("mac count: ",mac)
+
+print("mozzila count: ",mozilla)
+print("chrome count: ",chrome)
+print("safari count: ",safari)
+print("opera count: ",opera)
+
+print("google count: ",google)
+print("bing count: ",bing)
+"""
+yandex 0
+3560
+143
+3582 0 0 0 0
+iphone count:   256
+windows count:  1861
+android count:  813
+TABLET count:  0
+bot count:  23
+mac count:  389
+mozzila count:  3560
+chrome count:  1541
+safari count:  2410
+opera count:  0
+google count:  71
+bing count:  0
+"""
